@@ -26,3 +26,8 @@
 *.exe
 *.out
 *.app
+
+# Makefiles
+makefile
+Makefile
+mk.sh
