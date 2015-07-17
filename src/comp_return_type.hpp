@@ -46,9 +46,12 @@ namespace nafto
                           taglst_chars> type;
     };
 
+    template<class  baseT, class  tagT, class  taglst,
+             flagsT flags, class  taglst_chars>
+    constexpr maybe_n
+    comp_return_type<baseT,tagT,taglst,flags,taglst_chars>::idx_h;
+
   } // namespace detail
-
-
 
 } //  namespace nafto
 

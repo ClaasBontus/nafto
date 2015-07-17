@@ -28,7 +28,7 @@ namespace detail
   struct get_embedded_type<tag_entry<T,opt_param> >
   {
     using type= T;
-    constexpr static bool optional= std::is_same<opt_param,optional_tag>()();
+    enum : bool { optional= std::is_same<opt_param,optional_tag>()() };
   };
 
 

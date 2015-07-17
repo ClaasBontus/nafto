@@ -32,7 +32,7 @@ struct taglist_chars
 {
     using  ser_taglist=           ser_taglst;
     //
-    constexpr static flagsT  n_params= count_member<ser_taglist>()();
+    enum : flagsT { n_params= count_member<ser_taglist>()() };
 }; // struct taglist_chars
 
 

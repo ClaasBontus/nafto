@@ -32,6 +32,8 @@ namespace detail
         detail::type2idx<ser_taglst, tagT>().get_idx_unchecked();
   };
 
+  template<class tagT, class ser_taglst>
+  constexpr maybe_n flaglist_utils_helper<tagT,ser_taglst>::idx1;
 
 
   template<class ser_taglst, flagsT flags>

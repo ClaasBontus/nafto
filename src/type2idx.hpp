@@ -81,6 +81,8 @@ namespace detail
     }
   }; // struct type2idx
 
+  template<class typelst, class T>
+  constexpr maybe_n type2idx<typelst,T>::idx;
 
 
 } //  namespace detail

@@ -37,7 +37,7 @@ namespace nafto
   struct tag_entry
   {
     using type= T;
-    constexpr static bool optional= std::is_same<opt_param,optional_tag>()();
+    enum : bool { optional= std::is_same<opt_param,optional_tag>()() };
   };
 
 

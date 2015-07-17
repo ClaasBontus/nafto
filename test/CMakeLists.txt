@@ -1,0 +1,7 @@
+add_executable(check_or_branches_test01 check_or_branches_test01.cpp)
+add_executable(get_missing_type_test01 get_missing_type_test01.cpp)
+add_executable(nafto_optional_test01 nafto_optional_test01.cpp)
+add_executable(nafto_overloading_test01 nafto_overloading_test01.cpp)
+add_executable(nafto_test01 nafto_test01.cpp)
+add_executable(type2idx_test01 type2idx_test01.cpp)
+add_executable(value_types_test01 value_types_test01.cpp)

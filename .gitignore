@@ -31,3 +31,8 @@
 makefile
 Makefile
 mk.sh
+
+# CMake
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
