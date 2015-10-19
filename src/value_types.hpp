@@ -16,6 +16,7 @@
 #include <type_traits>
 #include <utility>
 #include <complex>
+#include <vector>
 #include "nafto_types.hpp"
 
 
@@ -66,6 +67,30 @@ namespace detail
   struct to_cmplx
   {
     using type= std::complex<T>;
+  };
+
+  template<class T>
+  struct ptr_pair
+  {
+    constexpr
+    ptr_pair( T const * frst, T const * scnd )
+    : first( frst )
+    , second( scnd )
+    {}
+    //
+    ptr_pair( const std::vector<T> & v )
+    : first( v.data() )
+    , second( &(*(v.end())) )
+    {}
+    //
+    T const *   first;
+    T const *   second;
+  }; // struct ptr_pair
+
+  template<class T>
+  struct to_ptr_pair
+  {
+    using type= ptr_pair<T>;
   };
 
 
@@ -177,6 +202,11 @@ namespace detail
   using complex_val_t=
         val_cont_t<n,T,(std::is_arithmetic<T>::value || is_cmplx<T>::value)>;
 
+
+  template<size_t n, class T>
+  using ptr_pair_val_t=
+        val_cont_t<n,T,true>;
+
 } // namespace detail
 
 
@@ -198,7 +228,12 @@ using arithmetic_wrap_t=
 template<size_t n,class opt_param=obligatory_tag>
 using complex_wrap_t=
       detail::value_wrap_t<n,detail::complex_val_t,double,opt_param,
-                           detail::to_cmplx >;
+                           detail::to_cmplx>;
+
+template<size_t n,class opt_param=obligatory_tag>
+using ptr_pair_wrap_t=
+      detail::value_wrap_t<n,detail::ptr_pair_val_t,double,opt_param,
+                           detail::to_ptr_pair>;
 
 
 } // namespace nafto
